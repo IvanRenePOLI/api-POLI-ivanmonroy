@@ -1,11 +1,13 @@
-class CommentProductController < ApplicationController
-  respond_to :json
+module Api
+  class CommentProductController < ApplicationController
+    respond_to :json
 
-  def all
+    def all
+    end
+
+    def default_serializer_options
+      { root: false }
+    end
+
   end
-
-  def default_serializer_options
-    { root: false }
-  end
-
 end

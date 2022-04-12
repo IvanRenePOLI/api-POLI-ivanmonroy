@@ -25,6 +25,13 @@ module Api
       render_default_error e, 401
     end
 
+    def get_by_product
+      @product = CommentProduct.find_by(product_id: params[:product_id])
+      render_default_format(@product,true,200)
+    rescue Exception => e
+      render_default_error e, 401
+    end
+
     private
 
     # Use callbacks to share common setup or constraints between actions.

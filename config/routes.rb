@@ -17,6 +17,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :comment_products, only: %i[index create update show destroy] do
+      collection do
+        get 'get_by_product', action: :get_by_product
+      end
     end
   end
 

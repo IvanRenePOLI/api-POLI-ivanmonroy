@@ -1,7 +1,7 @@
 module Api
   class ProductsController < ApplicationController
     include RenderHelper
-    before_action :set_product, only: [:show, :edit, :update, :destroy], raise: false
+    before_action :set_product, only: [:show, :edit, :update, :destroy, :get_comments ], raise: false
     skip_before_action :authenticate_user!, only: [:create], raise: false
     respond_to :json
 
@@ -28,6 +28,12 @@ module Api
       render_default_format(@products,true,200)
     rescue Exception => e
       render_default_error e, 401
+    end
+
+    def get_comments
+      render_default_format({product: @product, averange: @product.get_average_start, comments: @product.comment_products.joins(:client).pluck('comment_products.id, comment_products.comment, comment_products.star,  clients.name, clients.email') } ,true,200)
+    rescue Exception => e
+      puts e.inspect
     end
 
     private

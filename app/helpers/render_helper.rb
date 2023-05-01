@@ -23,7 +23,17 @@ module RenderHelper
   rescue => e
     raise e
   end
-
+  #test
+  def render_default_format_3 data, data_2, data_3, success, status=200
+    render :json => {
+      success: success,
+      data: data,
+      data2: data_2,
+      data3: data_3,
+    }, status: status
+  rescue => e
+    raise e
+  end
 
   # @param message string
   # @param data json

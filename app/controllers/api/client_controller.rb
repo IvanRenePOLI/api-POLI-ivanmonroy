@@ -1,7 +1,5 @@
 module Api
-  class CommentProductController < ApplicationController
-    skip_before_filter :verify_authenticity_token
-
+  class ClientController < ApplicationController
     respond_to :json
 
     def all

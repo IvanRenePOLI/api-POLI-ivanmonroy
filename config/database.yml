@@ -12,18 +12,18 @@ default: &default
 development:
   adapter: postgresql
   #database: interactive_admin_master
-  database: d5nilaap91nok2
-  username: vcsqbenmhcovka
-  password: d26386e6131ae14947d264b4e8df77e014ede2a5f82aca47401ace2be9c6546c
-  host: ec2-52-73-155-171.compute-1.amazonaws.com
+  database: d3riblh081qv24
+  username: eawntrzlqktbme
+  password: ee86396d75a29c1eea46191bfb860bcff90eb2b3580bc2d05279ffd0e497a4af
+  host: ec2-52-0-79-72.compute-1.amazonaws.com
   port: 5432
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  URI: postgres://vcsqbenmhcovka:d26386e6131ae14947d264b4e8df77e014ede2a5f82aca47401ace2be9c6546c@ec2-52-73-155-171.compute-1.amazonaws.com:5432/d5nilaap91nok2
+  URI: postgres://eawntrzlqktbme:ee86396d75a29c1eea46191bfb860bcff90eb2b3580bc2d05279ffd0e497a4af@ec2-52-0-79-72.compute-1.amazonaws.com:5432/d3riblh081qv24
 
 production:
   <<: *default
-  URI: postgres://vcsqbenmhcovka:d26386e6131ae14947d264b4e8df77e014ede2a5f82aca47401ace2be9c6546c@ec2-52-73-155-171.compute-1.amazonaws.com:5432/d5nilaap91nok2
+  URI: postgres://eawntrzlqktbme:ee86396d75a29c1eea46191bfb860bcff90eb2b3580bc2d05279ffd0e497a4af@ec2-52-0-79-72.compute-1.amazonaws.com:5432/d3riblh081qv24

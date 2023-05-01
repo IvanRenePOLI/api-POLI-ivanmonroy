@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :products, only: %i[index create update show destroy] do
       collection do
         get 'get_by_desc', action: :get_by_desc
+        get 'get_comments', action: :get_comments
       end
     end
   end

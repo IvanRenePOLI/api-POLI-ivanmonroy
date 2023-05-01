@@ -17,7 +17,16 @@ module Api
     end
 
     def create
-      @comment_product = CommentProduct.new(subscriber_params)
+      unless Client.exists?(:email => params[:email])
+        @client = Client.new(:email => params[:email], :name => params[:name])
+        @client.save
+      end
+
+      @client = Client.where('email = ?', params[:email]).first
+      puts @client
+
+      @comment_product = CommentProduct.create(:comment => params[:comment], :star => params[:star] , :client_id => @client.id , :product_id => params[:product_id] )
+      puts params
         if @comment_product.save
           render_success_format('Su comentario ha sido registrado correctamente', @comment_product, true)
         end
@@ -42,9 +51,7 @@ module Api
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def comment_product_params
-      params.permit(:comment, :star, :product_id)
-    end
+
 
   end
 end
